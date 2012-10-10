@@ -7,7 +7,7 @@ class ossec::common {
       ensure => directory
     }
   }
-  case $lsbdistid {
+  case $osfamily {
     /(Ubuntu|ubuntu|Debian|debian)/ : {
       $hidsagentservice='ossec-hids-agent'
       $hidsagentpackage='ossec-hids-agent'
@@ -26,7 +26,7 @@ class ossec::common {
         default : { fail("This ossec module has not been tested on your distribution (or 'redhat-lsb' package not installed)") }
       }
     }
-    /(CentOS|Redhat|RedHatEnterpriseServer)/ : {
+    'RedHat' : {
       $hidsagentservice='ossec-hids'
       $hidsagentpackage='ossec-hids-client'
       $hidsserverservice='ossec-hids'

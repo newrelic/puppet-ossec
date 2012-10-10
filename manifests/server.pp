@@ -11,7 +11,7 @@ class ossec::server (
   include ossec::common
 	
   # install package
-  case $lsbdistid {
+  case $osfamily {
     /(Ubuntu|ubuntu|Debian|debian)/ : {
       case $architecture {
         "amd64","x86_64": {

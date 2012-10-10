@@ -5,7 +5,7 @@ class ossec::client (
 ) {
   include ossec::common
 
-  case $lsbdistid {
+  case $osfamily {
     /(Ubuntu|ubuntu|Debian|debian)/ : {
       case $architecture {
         "amd64","x86_64": {
