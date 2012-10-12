@@ -145,6 +145,7 @@ class ossec::server (
     owner   => "root",
     group   => "ossec",
     mode    => "640",
+    require => Package[$ossec::common::hidsserverpackage],
     notify  => Service[$ossec::common::hidsserverservice]
   }
   Ossec::AgentKey<<| |>>
@@ -153,7 +154,8 @@ class ossec::server (
     target  => "/var/ossec/etc/client.keys",
     order   => 99,
     content => "\n",
-    notify => Service[$ossec::common::hidsserverservice]
+    require => Package[$ossec::common::hidsserverpackage],
+    notify  => Service[$ossec::common::hidsserverservice]
   }
 
 }
