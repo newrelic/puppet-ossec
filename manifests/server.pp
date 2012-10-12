@@ -55,7 +55,7 @@ class ossec::server (
         ensure => link,
       }
     }
-    /(CentOS|RedHat)/ : {
+    'RedHat' : {
       package { 'mysql': ensure => present }
       file { "/opt/rpm/ossec-hids-2.6.0-5.${ossec::common::redhatversion}.${architecture}.rpm":
         owner   => root,

@@ -43,7 +43,7 @@ class ossec::client (
         default: { fail("architecture not supported") }
       }
     }
-    /(CentOS|RedHat)/ : {
+    'RedHat' : {
       file { "/opt/rpm/ossec-hids-2.6.0-5.${ossec::common::redhatversion}.${architecture}.rpm":
         owner   => root,
         group   => root,

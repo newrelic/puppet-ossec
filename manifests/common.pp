@@ -26,7 +26,7 @@ class ossec::common {
         default : { fail("This ossec module has not been tested on your distribution (or 'redhat-lsb' package not installed)") }
       }
     }
-    /(CentOS|Redhat|RedHatEnterpriseServer)/ : {
+    'RedHat' : {
       $hidsagentservice='ossec-hids'
       $hidsagentpackage='ossec-hids-client'
       $hidsserverservice='ossec-hids'
