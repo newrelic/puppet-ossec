@@ -7,7 +7,7 @@ class ossec::common {
       ensure => directory
     }
   }
-  case $lsbdistid {
+  case $osfamily {
     /(Ubuntu|ubuntu|Debian|debian)/ : {
       $hidsagentservice='ossec-hids-agent'
       $hidsagentpackage='ossec-hids-agent'
