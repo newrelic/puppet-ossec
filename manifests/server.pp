@@ -56,7 +56,6 @@ class ossec::server (
       }
     }
     'RedHat' : {
-      package { 'mysql': ensure => present }
       file { "/opt/rpm/ossec-hids-2.6.0-5.${ossec::common::redhatversion}.${architecture}.rpm":
         owner   => root,
         group   => root,
@@ -83,7 +82,7 @@ class ossec::server (
         provider => rpm,
         ensure => installed,
         source => "/opt/rpm/ossec-hids-server-2.6.0-5.${ossec::common::redhatversion}.${architecture}.rpm",
-        require => [File["/opt/rpm/ossec-hids-server-2.6.0-5.${ossec::common::redhatversion}.${architecture}.rpm"],Package['mysql']]
+        require => [File["/opt/rpm/ossec-hids-server-2.6.0-5.${ossec::common::redhatversion}.${architecture}.rpm"],Package['ossec-hids']]
       }
     }
     default: { fail("OS family not supported") }
